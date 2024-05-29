@@ -1,7 +1,8 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        long long int lo=1,hi=x,mid;
+        int lo=1;
+        long long int hi=x,mid;
         long long int val;
         if(x==1) return 1;
         while(hi-lo>1){
