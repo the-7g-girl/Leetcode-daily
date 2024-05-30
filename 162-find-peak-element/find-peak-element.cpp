@@ -18,8 +18,6 @@ public:
             }
             if(mid==0) return mid+1;                
         }
-        if(hi<lo && (nums[hi]>nums[hi+1] && nums[hi]>nums[hi-1])) return hi;
-
         return hi;
     }
 };
