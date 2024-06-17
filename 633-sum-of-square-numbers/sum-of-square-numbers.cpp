@@ -1,18 +1,14 @@
+#define ll long long
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        for (int divisor = 2; divisor * divisor <= c; divisor++) {
-            if (c % divisor == 0) {
-                int exponentCount = 0;
-                while (c % divisor == 0) {
-                    exponentCount++;
-                    c /= divisor;
-                }
-                if (divisor % 4 == 3 && exponentCount % 2 != 0) {
-                    return false;
-                }
-            }
+        ll left = 0, right = static_cast<ll>(sqrt(c));
+        while(left <= right) {
+            if(left * left + right * right == c) return true;
+            else if(left * left + right * right > c) right--;
+            else left++;
         }
-        return c % 4 != 3;
+
+        return false;
     }
 };
