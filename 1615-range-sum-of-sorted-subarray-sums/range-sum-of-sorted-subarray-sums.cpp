@@ -17,9 +17,9 @@ public:
         sort(sums.begin(), sums.end());
 
         int ans = 0;
-
+        int k = sums.size();
         for(int i= left-1; i<right; i++) {
-            if(i<sums.size()) {
+            if(i<k) {
                 ans += sums[i];
                 ans = ans%MOD;
             }
