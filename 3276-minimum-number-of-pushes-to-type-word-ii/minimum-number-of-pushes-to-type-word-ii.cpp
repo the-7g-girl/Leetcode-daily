@@ -13,12 +13,11 @@ public:
             A[ch-'a'].second++;
         }
         sort(A.begin(),A.end(),cmp);
-        int c,ans=0,p=1;
+        int c,ans=0,p=0;
         for(int i=0;i<A.size();i++){
             if(A[i].second!=0)
             {    
-                if(p%8!=0) c=(p/8)+1;
-                if(p%8==0) c=p/8;
+                c=(p/8)+1;
                 ans+=c*A[i].second;
                 p++;
             }
