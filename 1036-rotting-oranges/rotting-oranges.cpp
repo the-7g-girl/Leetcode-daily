@@ -20,14 +20,15 @@ public:
             for (auto move : moves) {
                 int chi = curr.first + move.first;
                 int chj = curr.second + move.second;
+                cout<<chi<<" "<<chj<<endl;
                 if (!isValid(chi, chj, m, n))
                     continue;
-                if (grid[chi][chj] == 0)
+                if (grid[chi][chj] != 1)
                     continue;
-                if (grid[chi][chj] == 2) {
-                    level[chi][chj] = min(level[chi][chj],
-                                          level[curr.first][curr.second] + 1);
-                }
+                // if (grid[chi][chj] == 2) {
+                //     level[chi][chj] = min(level[chi][chj],
+                //                           level[curr.first][curr.second] + 1);
+                // }
                 if (grid[chi][chj] == 1) {
                     grid[chi][chj]=2;
                     level[chi][chj] = level[curr.first][curr.second] + 1;
