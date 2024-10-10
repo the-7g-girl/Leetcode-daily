@@ -2,24 +2,21 @@ class Solution {
 public:
     int maxWidthRamp(vector<int>& nums) {
         int n = nums.size();
-        vector<int> indices(n);
+        vector<int> maxele(n);
+        maxele[n - 1] = nums[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            maxele[i] = max(maxele[i + 1], nums[i]);
+        }
+        int l=0, r=0, maxw=0;
+        while(r<n){
+            while(nums[l]>maxele[r] && l<r){
+                l++;
+            }
+            maxw=max(maxw, r-l);
+            r++;
 
-        for (int i = 0; i < n; i++) {
-            indices[i] = i;
         }
 
-        sort(indices.begin(), indices.end(), [&](int i, int j) {
-            return nums[i] != nums[j] ? nums[i] < nums[j] : i < j;
-        });
-
-        int minIndex = n; 
-        int maxWidth = 0;
-
-        for (int i = 0; i < n; i++) {
-            maxWidth = max(maxWidth, indices[i] - minIndex);
-            minIndex = min(minIndex, indices[i]);
-        }
-
-        return maxWidth;
+        return maxw;
     }
 };
