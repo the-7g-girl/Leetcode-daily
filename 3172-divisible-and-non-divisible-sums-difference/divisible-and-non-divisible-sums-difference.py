@@ -1,10 +1,5 @@
-class Solution(object):
-    def differenceOfSums(self, n, m):
-        """
-        :type n: int
-        :type m: int
-        :rtype: int
-        """
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
         num1 = 0
         num2 = 0
         for i in range(n+1):
@@ -12,5 +7,4 @@ class Solution(object):
                 num1+=i
             else:
                 num2+=i
-        return num1-num2
-        
+        return num1 - num2   
