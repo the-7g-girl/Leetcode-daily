@@ -3,7 +3,6 @@ class Solution:
         n = len(nums)
         pos = []
         
-        # Find all zero positions
         for i, ele in enumerate(nums):
             if ele == 0:
                 pos.append(i)
